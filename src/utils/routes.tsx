@@ -1,24 +1,22 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const Home = () => (
-  <span>aaa</span>
-);
+import Home from '../pages/Home/index';
 
 const Random = () => (
-  <span>aaa</span>
+  <span>Random</span>
 );
 
 const Pokemon = () => (
-  <span>aaa</span>
+  <span>Pokemon</span>
 );
 
 const Search = () => (
-  <span>aaa</span>
+  <span>Search</span>
 );
 
 const NoMatch = () => (
-  <span>aaa</span>
+  <span>NoMatch</span>
 );
 
 const Routes = () => (

@@ -22,6 +22,8 @@
     "rules": {
         "react/jsx-filename-extension": [1, {"extensions": [".tsx"]}],
         "import/no-unresolved": [0],
-        "import/extensions": [0]
+        "import/extensions": [0],
+        "no-nested-ternary": [0],
+        "camelcase": [0]
     }
 }

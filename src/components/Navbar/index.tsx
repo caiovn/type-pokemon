@@ -3,20 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { NavbarStyle } from './styles';
 
-export interface Props {
-    paths: Array<JsonProps>;
-}
-
-export interface JsonProps {
-    link: string;
-    title: string;
-}
-
-const Navbar = ({ paths }: Props) => (
+const Navbar = () => (
   <NavbarStyle>
-    {paths.map((index) => (
-      <Link to={index.link} key={index.title}>{index.title}</Link>
-    ))}
+    <Link to="/">Pokémon</Link>
+    <Link to="/search">Search</Link>
+    <Link to="/random">Random</Link>
   </NavbarStyle>
 );
 
