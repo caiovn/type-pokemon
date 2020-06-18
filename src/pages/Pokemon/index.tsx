@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import api from '../../utils/api';
-
-import Loading from '../../components/Loading/index';
-import ErrorApi from '../../components/ErrorApi/index';
-import CardList from '../../components/CardList/index';
-
 import { Container } from '../sharedStyles';
 
-const Home = () => {
+import PokemonContainer from '../../components/PokemonContainer/index';
+import Loading from '../../components/Loading/index';
+import ErrorApi from '../../components/ErrorApi/index';
+
+const Pokemon = () => {
+  const { number } = useParams();
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    api.get('/pokemons')
+    api.get(`/pokemon/number/${number}`)
       .then((res) => {
         setData(res.data);
       })
@@ -25,8 +26,7 @@ const Home = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
-
+  }, [number]);
   return (
     <Container>
       {
@@ -34,11 +34,11 @@ const Home = () => {
               ? (<Loading />)
               : (error
                 ? (<ErrorApi error={error!} />)
-                : (<CardList data={data} />)
+                : (<PokemonContainer pokemon={data} />)
               )
-          }
+        }
     </Container>
   );
 };
 
-export default Home;
+export default Pokemon;

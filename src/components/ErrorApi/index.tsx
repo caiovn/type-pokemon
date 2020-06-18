@@ -6,23 +6,27 @@ import ErrorApiImg from '../../media/errorMissingno.webp';
 import NotConnectApiImg from '../../media/rotomConnection.webp';
 
 interface Props {
-    error: errorProps;
+    error: errorProp;
 }
 
-interface errorProps {
-    status: number;
-    statusText: string;
+interface errorProp {
+    response: responseProps;
+}
+
+interface responseProps {
+  status: number;
+  statusText: string;
 }
 
 const ErrorApi = ({ error }: Props) => (
   <>
-    {error.status !== undefined ? (
+    {error.response !== undefined ? (
       <Container>
-        <Title>{`ERROR ${error.status}`}</Title>
+        <Title>{`ERROR ${error.response.status}`}</Title>
 
         <Image src={ErrorApiImg} alt="Missingno" />
 
-        <Title>{error.statusText.toUpperCase()}</Title>
+        <Title>{error.response.statusText.toUpperCase()}</Title>
       </Container>
     ) : (
       <Container>

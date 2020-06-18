@@ -2,13 +2,10 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from '../pages/Home/index';
+import Pokemon from '../pages/Pokemon/index';
 
 const Random = () => (
   <span>Random</span>
-);
-
-const Pokemon = () => (
-  <span>Pokemon</span>
 );
 
 const Search = () => (

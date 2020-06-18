@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin: 0 auto;
   display: grid;
-  grid-row-gap: 75px;
 
   @media (max-width: 576px) {
-    grid-row-gap: 50px;
     text-align: center;
+    position: absolute;
+    top: 20%;
   }
 `;
 

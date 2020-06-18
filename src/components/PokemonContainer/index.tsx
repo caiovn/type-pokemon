@@ -7,7 +7,7 @@ import {
 } from './styles';
 
 interface Props {
-    pokemon: Array<pokemonProp>;
+    pokemon: pokemonProp[];
 }
 
 interface pokemonProp {
@@ -19,8 +19,8 @@ interface infoProps {
     num: number;
     img: string;
     type: Array<string>;
-    prev_evolution: Array<prevEvolutionProps>;
-    next_evolution: Array<nextEvolutionProps>;
+    prev_evolution?: Array<prevEvolutionProps>;
+    next_evolution?: Array<nextEvolutionProps>;
 }
 
 interface prevEvolutionProps {
@@ -34,22 +34,23 @@ interface nextEvolutionProps {
 }
 
 const PokemonContainer = ({ pokemon }: Props) => (
-  pokemon.map((index) => (
-    <GridContainer key={index.info.num}>
-      <Container>
-        <Image src={index.info.img} />
-      </Container>
+  <>
+    {pokemon.map((index: pokemonProp) => (
+      <GridContainer key={index.info.num}>
+        <Container>
+          <Image src={index.info.img} />
+        </Container>
 
-      <Container>
-        <Title>
-          {index.info.name}
-          <span>
-            {`#${index.info.num}`}
-          </span>
-        </Title>
+        <Container>
+          <Title>
+            {index.info.name}
+            <span>
+              {`#${index.info.num}`}
+            </span>
+          </Title>
 
-        <Paragraph>
-          {
+          <Paragraph>
+            {
                 index.info.type.map((type, indice) => (
                   <Text key={type}>
                     {!indice ? `${'Type: '}` : ', '}
@@ -57,10 +58,10 @@ const PokemonContainer = ({ pokemon }: Props) => (
                   </Text>
                 ))
               }
-        </Paragraph>
+          </Paragraph>
 
-        <Paragraph>
-          {
+          <Paragraph>
+            {
                 index.info.prev_evolution
                 && index.info.prev_evolution.map((pEvolution, indice) => (
                   <Text key={pEvolution.num}>
@@ -72,10 +73,10 @@ const PokemonContainer = ({ pokemon }: Props) => (
                   </Text>
                 ))
               }
-        </Paragraph>
+          </Paragraph>
 
-        <Paragraph>
-          {
+          <Paragraph>
+            {
                 index.info.next_evolution
                 && index.info.next_evolution.map((nEvolution, indice) => (
                   <Text key={nEvolution.num}>
@@ -87,10 +88,11 @@ const PokemonContainer = ({ pokemon }: Props) => (
                   </Text>
                 ))
               }
-        </Paragraph>
-      </Container>
-    </GridContainer>
-  ))
+          </Paragraph>
+        </Container>
+      </GridContainer>
+    ))}
+  </>
 );
 
 export default PokemonContainer;
