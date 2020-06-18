@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from '../pages/Home/index';
 import Pokemon from '../pages/Pokemon/index';
+import NoMatch from '../pages/NoMatch/index';
 
 const Random = () => (
   <span>Random</span>
@@ -10,10 +11,6 @@ const Random = () => (
 
 const Search = () => (
   <span>Search</span>
-);
-
-const NoMatch = () => (
-  <span>NoMatch</span>
 );
 
 const Routes = () => (
