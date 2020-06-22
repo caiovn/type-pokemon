@@ -4,10 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home/index';
 import Pokemon from '../pages/Pokemon/index';
 import NoMatch from '../pages/NoMatch/index';
-
-const Random = () => (
-  <span>Random</span>
-);
+import Random from '../pages/Random/index';
 
 const Search = () => (
   <span>Search</span>
